@@ -35,7 +35,9 @@ Angry IP scanner downloaden van internet
 IP zoeken van adminPC 
 
 Verbinding maken met AdminPC 
-Psexec \\192.168.178.24 cmd /accepteula
+Open cmd prompt als admin met credentials van administrator
+
+Psexec \\[INSERT_IP_ADDRESS] cmd /accepteula
 Vervolgens PowerShell command en windows defender uitzetten op AdminPC 
 
 Windows defender exclusion op Admin PC
