@@ -1,0 +1,14 @@
+1.	Local fake admin maken
+2.	Windows defender uitzetten alles en exclusion op C folder
+3.	Download Angry IP, Sysinternals en Mimikatz
+4.	Run mimikatz om administrator wachtwoord te bemachtigen op lowpriv machine
+5.	Angry IP scanner draaien om IP van AdminPC te bemachtigen
+6.	Cmd prompt met de admin ww en Psexec reverse shell met de Admin PC
+        a.	Psexec \\[INSERT_IP_ADDRESS] cmd /accepteula
+        b.	Start PowerShell
+        c.	Make exclusion op C en X folder
+        d.	Laat window open en ga naar stap 7
+7.	Win+R contact maken met AdminPC 
+8.	Defender helemaal 
+9.	Mimikatz kopieren van low priv machine
+10.	Window van stap 6: run mimikatz op adminPC 
